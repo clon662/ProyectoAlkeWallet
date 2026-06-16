@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+     <!-- Tus estilos propios -->
+    <link rel="stylesheet" href="login.css" />
+    <title>Document</title>
+    
+    <!-- 1. BOOTSTRAP CSS LOCAL -->
+    <link rel="stylesheet" href="../bootstrap.min.css" />
+    
+    <!-- 2. JQUERY LOCAL -->
+    <script src="../jquery.min.js"></script>
+  </head>
+  <body>
+    <div id="login-container" class="login-container">
+      <p id="titulo-login" class="h4 text-center">Iniciar Sesión</p>
+      <div>
+        <!-- Alerts esto iniciaran con el estado d-none -->
+        <div id="alert-success" class="alert alert-success d-none" role="alert"></div>
+        <div id="alert-danger" class="alert alert-danger d-none" role="alert"></div>
+        <!-- ------------------------------------------ -->
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon1"> @ </span>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="admin@wallet.com"
+            aria-label="Username"
+            aria-describedby="basic-addon1"
+          />
+        </div>
+
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon2">🔐</span>
+          <input
+            type="password"
+            class="form-control"
+            placeholder="Contraseña"
+            aria-label="Password"
+            aria-describedby="basic-addon2"
+          />
+        </div>
+      </div>
+      <div class="d-grid mt-4">
+        <button type="button" id="btn-ingresar" class="btn btn-primary">Ingresar</button>
+      </div>
+      <p class="text-center mt-2">
+        <p class="text-center text-muted mt-2" style="font-size: 0.75rem;"><small>Credenciales: admin@wallet.com / adm123</small></p>
+      </p>
+    </div>
+   <!-- 3. BOOTSTRAP JS LOCAL -->
+    <script src="../bootstrap.bundle.min.js"></script>
+    <!-- Tu archivo de lógica jQuery (ejemplo: app.js) -->
+    <script src="login.js"></script>
+  </body>
+</html>

@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Tus estilos del menú -->
+    <link rel="stylesheet" href="menu.css" />
+    <title>AlkeWallet - Menú Principal</title>
+
+    <!-- Buscar Bootstrap y jQuery saliendo de la carpeta menu (../) -->
+    <link rel="stylesheet" href="../bootstrap.min.css" />
+    <script src="../jquery.min.js"></script>
+  </head>
+  <body class="bg-light d-flex flex-column vh-100">
+    <!-- Header -->
+    <nav class="navbar navbar-expand bg-white border-bottom px-4 py-3">
+      <div
+        class="container-fluid p-0 d-flex justify-content-between align-items-center"
+      >
+        <!-- Lado izquierdo: Nombre de la Wallet -->
+        <span class="navbar-brand fw-bold text-dark fs-4 mb-0"
+          >Alke Wallet</span
+        >
+
+        <!-- Lado derecho: Usuario y Botón de Desconexión -->
+        <div class="d-flex align-items-center gap-3">
+          <div class="text-secondary fs-6">
+            <span class="fw-medium">Bienvenido,</span>
+            <span class="fw-bold text-dark">Administrador</span>
+          </div>
+
+          <!-- Botón de desconectar estilizado como la etiqueta inferior pero en tono rojo/peligro -->
+          <button
+            id="btn-logout"
+            class="btn border-0 d-inline-flex align-items-center px-3 py-1 bg-danger bg-opacity-10 text-danger rounded-pill small fw-medium"
+            type="button"
+          >
+            <!-- Icono de apagado/desconexión en SVG -->
+            <svg
+              class="me-1"
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M18.36 6.64a9 9 0 1 1-12.73 0"></path>
+              <line x1="12" y1="2" x2="12" y2="12"></line>
+            </svg>
+            Desconectar
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Contenedor Principal (Tarjeta Centrada) -->
+    <div class="flex-grow-1 d-flex justify-content-center align-items-center">
+      <!-- NUEVO: Este contenedor alinea la tarjeta y el botón verticalmente -->
+      <div
+        class="d-flex flex-column gap-3"
+        style="max-width: 400px; width: 100%"
+      >
+        <!-- Tarjeta de Saldo -->
+        <div
+          class="card border-0 shadow-sm p-4 text-center"
+          style="border-radius: 16px; width: 100%"
+        >
+          <!-- Título de saldo -->
+          <p
+            class="text-secondary text-uppercase fw-bold small mb-2"
+            style="letter-spacing: 0.5px"
+          >
+            Saldo Disponible
+          </p>
+
+          <!-- Monto principal -->
+          <h1 class="display-5 fw-bold text-dark mb-3">$ 30.111,00</h1>
+
+          <!-- Etiqueta de estado -->
+          <div
+            class="d-inline-flex align-items-center justify-content-center mx-auto px-3 py-1 bg-success bg-opacity-10 text-success rounded-pill small fw-medium"
+          >
+            <!-- Icono de verificación -->
+            <svg
+              class="me-1"
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="3"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            Cuenta Operativa
+          </div>
+        </div>
+
+        <!-- Botón Depositar Dinero  -------------------------------- -->
+        <button
+          class="btn btn-white bg-white d-flex align-items-center justify-content-between p-3 border-0 shadow-sm"
+          style="border-radius: 16px; width: 100%"
+        >
+          <div class="d-flex align-items-center">
+            <!-- Icono azul -->
+            <div
+              class="bg-primary text-white d-flex align-items-center justify-content-center me-3"
+              style="width: 45px; height: 45px; border-radius: 12px"
+            >
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+              </svg>
+            </div>
+
+            <!-- Texto -->
+            <div class="text-start">
+              <div class="fw-bold text-dark mb-0" style="line-height: 1.2">
+                Depositar Dinero
+              </div>
+              <small class="text-muted">Carga saldo a tu cuenta</small>
+            </div>
+          </div>
+
+          <!-- Flecha derecha -->
+          <svg
+            class="text-muted"
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
+
+        <!-- Botón enviar Dinero -------------------------------- -->
+        <button
+          class="btn btn-white bg-white d-flex align-items-center justify-content-between p-3 border-0 shadow-sm"
+          style="border-radius: 16px; width: 100%"
+        >
+          <div class="d-flex align-items-center">
+            <!-- Icono azul -->
+            <div
+              class="bg-success text-white d-flex align-items-center justify-content-center me-3"
+              style="width: 45px; height: 45px; border-radius: 12px"
+            >
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <line x1="22" y1="2" x2="11" y2="13"></line>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+              </svg>
+            </div>
+
+            <!-- Texto -->
+            <div class="text-start">
+              <div class="fw-bold text-dark mb-0" style="line-height: 1.2">
+                Enviar Dinero
+              </div>
+              <small class="text-muted">Transferencia a contactos</small>
+            </div>
+          </div>
+
+          <!-- Flecha derecha -->
+          <svg
+            class="text-muted"
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
+
+        <!-- Botón movimiento de transacciones -------------------------------- -->
+        <button
+          class="btn btn-white bg-white d-flex align-items-center justify-content-between p-3 border-0 shadow-sm"
+          style="border-radius: 16px; width: 100%"
+        >
+          <div class="d-flex align-items-center">
+            <!-- Icono azul -->
+            <div
+              class="bg-info text-white d-flex align-items-center justify-content-center me-3"
+              style="width: 45px; height: 45px; border-radius: 12px"
+            >
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"
+                ></path>
+                <polyline points="3 3 3 8 8 8"></polyline>
+                <line x1="12" y1="7" x2="12" y2="12"></line>
+                <polyline points="12 12 16 14"></polyline>
+              </svg>
+            </div>
+
+            <!-- Texto -->
+            <div class="text-start">
+              <div class="fw-bold text-dark mb-0" style="line-height: 1.2">
+                Movimientos
+              </div>
+              <small class="text-muted">Historial de transacciones</small>
+            </div>
+          </div>
+
+          <!-- Flecha derecha -->
+          <svg
+            class="text-muted"
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
+      </div>
+      <!-- Fin del contenedor de alineación -->
+    </div>
+
+    <!-- Carga de scripts -->
+    <script src="../bootstrap.bundle.min.js"></script>
+    <script src="menu.js"></script>
+    <!-- Sin ../ porque está en su misma carpeta -->
+  </body>
+</html>
