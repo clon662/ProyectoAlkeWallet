@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const historialGuardado = localStorage.getItem("historial-transacciones");
   let movimientos = historialGuardado ? JSON.parse(historialGuardado) : [];
 
-  // FUNCIÓN: Mostrar alertas en la pantalla (Idéntica a depósito/transferir)
+  // FUNCIÓN: Mostrar alertas en la pantalla.
   function mostrarMensajePantalla(mensaje, tipo = "danger") {
     if (contenedorAlertas) {
       contenedorAlertas.innerHTML = "";
@@ -37,22 +37,27 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    // Recorremos al revés para mostrar primero la más reciente
+    // Recorremos al revés para mostrar primero el más nuevo
     movimientos.reverse().forEach((mov) => {
       const li = document.createElement("li");
       li.className =
         "list-group-item d-flex justify-content-between align-items-center border-0 px-0 py-2 small border-bottom";
 
-      const esDeposito = mov.tipo === "Depósito";
-      const badgeClass = esDeposito
+      // Si es Abono pintamos azul (Depósito), si es Transferencia pintamos verde (Envío)
+      const esAbono = mov.tipo === "Abono";
+      const badgeClass = esAbono
         ? "text-primary fw-bold"
         : "text-success fw-bold";
-      const signo = esDeposito ? "+" : "-";
+      const signo = esAbono ? "+" : "-";
+
+      // Tomamos el detalle (Nombre y Apellido) que guardamos previamente
+      const detalleUsuario = mov.detalle ? mov.detalle : "";
 
       li.innerHTML = `
         <div>
           <span class="d-block fw-bold text-dark">${mov.tipo}</span>
-          <span class="text-muted extra-small" style="font-size: 10px;">${mov.fecha}</span>
+          <span class="text-secondary extra-small d-block mb-1" style="font-size: 11px; font-style: italic;">${detalleUsuario}</span>
+          <span class="text-muted extra-small d-block" style="font-size: 10px;">${mov.fecha}</span>
         </div>
         <span class="${badgeClass}">
           ${signo} $${mov.monto.toLocaleString("es-CL")}
@@ -61,7 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
       listaMovimientosEl.appendChild(li);
     });
 
-    movimientos.reverse();
+    movimientos.reverse(); // Devolvemos el array a su orden para no romper la memoria
   }
 
   // 3. Evento para borrar el historial SIN ventanas emergentes del sistema
@@ -87,7 +92,7 @@ document.addEventListener("DOMContentLoaded", () => {
         "success",
       );
 
-      // Opcional: Borrar el mensaje de éxito después de 3 segundos para que no se quede ahí para siempre
+      // Borrar el mensaje de éxito después de 3 segundos para que no se quede ahí para siempre (esto es opcional *)
       setTimeout(() => {
         if (contenedorAlertas) contenedorAlertas.innerHTML = "";
       }, 3000);

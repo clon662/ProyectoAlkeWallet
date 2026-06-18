@@ -12,7 +12,7 @@ $(document).ready(function () {
       return; // Detiene la ejecución
     }
 
-    // 3. Validar las credenciales correctas
+    // 2. Validar las credenciales correctas
     if (username === "admin@wallet.com" && password === "adm123") {
       mostrarExito("¡Bienvenido al sistema! Redireccionando...");
 

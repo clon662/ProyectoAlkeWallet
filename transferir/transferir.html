@@ -3,33 +3,37 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <!-- Usamos tus mismos estilos de depósito -->
     <link rel="stylesheet" href="../deposito/deposito.css" />
     <title>AlkeWallet - Enviar Dinero</title>
-
-    <!-- Bootstrap y jQuery saliendo de la carpeta transferir (../) -->
     <link rel="stylesheet" href="../bootstrap.min.css" />
     <script src="../jquery.min.js"></script>
+    <style>
+      /* Ajuste extra para que la tabla de destinatarios se vea impecable en la tarjeta */
+      .tabla-scroll {
+        max-height: 200px;
+        overflow-y: auto;
+      }
+      .pointer {
+        cursor: pointer;
+      }
+      .pointer:hover {
+        background-color: rgba(25, 135, 84, 0.05);
+      }
+    </style>
   </head>
   <body>
-    <!-- Header (Exactamente igual) -->
     <nav class="navbar navbar-expand bg-white border-bottom px-4 py-3">
       <div
         class="container-fluid p-0 d-flex justify-content-between align-items-center"
       >
-        <!-- Lado izquierdo -->
         <span class="navbar-brand fw-bold text-dark fs-4 mb-0"
           >Alke Wallet</span
         >
-
-        <!-- Lado derecho -->
         <div class="d-flex align-items-center gap-3">
           <div class="text-secondary fs-6">
             <span class="fw-medium">Bienvenido,</span>
             <span class="fw-bold text-dark">Administrador</span>
           </div>
-
           <button
             id="btn-volver-menu"
             class="btn border-0 d-inline-flex align-items-center px-3 py-1 bg-danger bg-opacity-10 text-danger rounded-pill small fw-medium"
@@ -55,62 +59,133 @@
       </div>
     </nav>
 
-    <!-- Contenedor Principal (Tarjeta Centrada idéntica) -->
     <div
       class="flex-grow-1 d-flex justify-content-center align-items-center contenedor-principal"
     >
       <div class="d-flex flex-column gap-3 menu-container">
-        <!-- Tarjeta de Saldo -->
-        <div class="card border-0 align-items-center shadow-sm p-4 text-center card-custom">
-  
-  <div class="bg-success text-white d-flex align-items-center justify-content-center icon-container mb-2 tj-saldo">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-      <line x1="5" y1="12" x2="19" y2="12"></line>
-      <polyline points="12 5 19 12 12 19"></polyline>
-    </svg>
-  </div>
+        <div
+          class="card border-0 align-items-center shadow-sm p-4 text-center card-custom"
+        >
+          <div
+            class="bg-success text-white d-flex align-items-center justify-content-center icon-container mb-2"
+            style="width: 45px; height: 45px; border-radius: 12px"
+          >
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </div>
 
-  <p class="text-normal fw-bold saldo-title-icon-azul mb-1">
-    Enviar Dinero
-  </p>
-  <p class="text-depositar mb-4">
-    Transfiere fondos de manera segura e inmediata
-  </p>
+          <p class="text-normal fw-bold saldo-title-icon-azul mb-1">
+            Enviar Dinero
+          </p>
+          <p class="text-depositar mb-4">
+            Transfiere fondos de manera segura e inmediata
+          </p>
 
-  <div class="caja-saldo-actual mb-4">
-    <p class="text-secondary text-uppercase fw-bold saldo-title">Saldo Disponible</p>
-    <h1 id="monto-principal-transferir" class="display-6 fw-bold mb-3">$0</h1>
-  </div>
+          <div class="caja-saldo-actual mb-4">
+            <p class="text-secondary text-uppercase fw-bold saldo-title">
+              Saldo Disponible
+            </p>
+            <h1
+              id="monto-principal-transferir"
+              class="display-6 fw-bold mb-3"
+              style="color: #198754"
+            >
+              $0
+            </h1>
+          </div>
 
-  <div id="contenedor-alertas" class="w-100 mb-3"></div>
+          <div id="contenedor-alertas" class="w-100 mb-3"></div>
 
-  <div class="w-100 d-flex flex-column gap-2 text-start">
-    <p class="text-depositar text-depositar2 text-black fw-bold">
-      MONTO A ENVIAR
-    </p>
+          <div id="seccion-destinatarios" class="w-100 text-start">
+            <p class="text-depositar text-black fw-bold mb-2 text-uppercase">
+              1. Selecciona el Destinatario
+            </p>
 
-    <div class="input-group mb-3">
-      <span class="input-group-text" id="basic-addon1">$</span>
-      <input
-        type="text"
-        class="form-control"
-        placeholder="0.00"
-        aria-label="Monto"
-        aria-describedby="basic-addon1"
-      />
+            <input
+              type="text"
+              id="buscador-destinatario"
+              class="form-control mb-3"
+              placeholder="🔍 Buscar por nombre, alias o CBU..."
+            />
+
+            <div class="table-responsive tabla-scroll border rounded-3">
+              <table class="table table-sm align-middle mb-0 small">
+                <tbody id="tabla-destinatarios-body"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <div id="seccion-formulario-envio" class="w-100 text-start d-none">
+            <p class="text-depositar text-black fw-bold mb-1 text-uppercase">
+              2. Datos del Destinatario
+            </p>
+
+            <div
+              class="p-3 bg-light rounded-3 mb-3 border border-success border-opacity-25"
+            >
+              <h6 id="destinatario-nombre" class="fw-bold text-dark mb-1">
+                Nombre Apellido
+              </h6>
+              <span
+                id="destinatario-banco"
+                class="badge bg-success bg-opacity-10 text-success mb-2"
+                >Banco</span
+              >
+              <div class="text-muted extra-small" style="font-size: 11px">
+                <strong>CBU:</strong> <span id="destinatario-cbu">0000</span
+                ><br />
+                <strong>Alias:</strong>
+                <span id="destinatario-alias">alias</span>
+              </div>
+            </div>
+
+            <p class="text-depositar text-depositar2 text-black fw-bold">
+              MONTO A ENVIAR
+            </p>
+            <div class="input-group mb-3">
+              <span class="input-group-text">$</span>
+              <input
+                type="text"
+                id="input-monto-transferir"
+                class="form-control"
+                placeholder="0.00"
+              />
+            </div>
+
+            <div class="d-flex gap-2">
+              <button
+                type="button"
+                id="btn-cambiar-destinatario"
+                class="btn btn-outline-secondary w-50"
+                style="border-radius: 10px"
+              >
+                Cambiar
+              </button>
+              <button
+                type="button"
+                id="btn-enviar"
+                class="btn btn-success w-50"
+                style="border-radius: 10px"
+              >
+                Transferir
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <button
-      type="button"
-      id="btn-enviar"
-      class="btn btn-success btn-depositar-dinero"
-    >
-      Transferir
-    </button>
-  </div>
-</div>
-
-    <!-- Carga de scripts -->
     <script src="../bootstrap.bundle.min.js"></script>
     <script src="transferir.js"></script>
   </body>

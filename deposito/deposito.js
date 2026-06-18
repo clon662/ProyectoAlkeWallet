@@ -23,11 +23,11 @@ document.addEventListener("DOMContentLoaded", () => {
     saldoActual = 306000; // Respaldo por si acaso
   }
 
-  // FUNCIÓN: Renderizar el saldo formateado en pantalla y guardar en localStorage
+  //Renderizar el saldo formateado en pantalla y guardar en localStorage
   function actualizarPantallaYSaldos() {
     // Para la interfaz usamos toLocaleString
     montoPrincipalEl.textContent = `$ ${saldoActual.toLocaleString("es-CL")}`;
-    // Para el almacenamiento guardamos el número ENTERO (ej: 306000), SIN caracteres raros
+    //Para el almacenamiento guardamos el número ENTERO (ej: 306000), SIN!!!!! caracteres raros
     localStorage.setItem("monto-principal-deposito", saldoActual);
   }
 
@@ -79,12 +79,13 @@ document.addEventListener("DOMContentLoaded", () => {
         "success",
       );
 
-      // NUEVO: Registrar el movimiento en el historial
+      //Registrar el movimiento en el historial
       const historial = localStorage.getItem("historial-transacciones")
         ? JSON.parse(localStorage.getItem("historial-transacciones"))
         : [];
       historial.push({
-        tipo: "Depósito",
+        tipo: "Abono",
+        detalle: "Por: Pedro Pacheco",
         monto: montoIngresado,
         fecha: new Date().toLocaleString("es-CL"),
       });

@@ -15,14 +15,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let monto;
 
-  // Validamos rigurosamente que lo que haya en localStorage sea un número válido
+  // Validamos que lo que haya en localStorage sea un número válido
   if (montoGuardado && !isNaN(parseFloat(montoGuardado))) {
     monto = parseFloat(montoGuardado);
   } else {
     monto = 306000; // Si no hay nada o está roto, usamos el valor por defecto
   }
 
-  // 3. Formateamos el monto a formato chileno y lo asignamos al h1
+  // 3. Formateamos el monto a formato cl y lo asignamos al h1
   if (h1_Monto) {
     h1_Monto.textContent = new Intl.NumberFormat("es-CL", {
       style: "currency",
@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
       console.log("Botón de enviar dinero clickeado, saldo actual:", monto);
       // Guardamos el saldo actual en el localStorage por seguridad antes de cambiar de página
       localStorage.setItem("monto-principal-deposito", monto);
-      window.location.href = "../transferir/transferir.html"; // Asegúrate de que la ruta sea correcta
+      window.location.href = "../transferir/transferir.html";
     });
   }
 
