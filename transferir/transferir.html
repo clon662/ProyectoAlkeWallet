@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Usamos tus mismos estilos de depósito -->
+    <link rel="stylesheet" href="../deposito/deposito.css" />
+    <title>AlkeWallet - Enviar Dinero</title>
+
+    <!-- Bootstrap y jQuery saliendo de la carpeta transferir (../) -->
+    <link rel="stylesheet" href="../bootstrap.min.css" />
+    <script src="../jquery.min.js"></script>
+  </head>
+  <body>
+    <!-- Header (Exactamente igual) -->
+    <nav class="navbar navbar-expand bg-white border-bottom px-4 py-3">
+      <div
+        class="container-fluid p-0 d-flex justify-content-between align-items-center"
+      >
+        <!-- Lado izquierdo -->
+        <span class="navbar-brand fw-bold text-dark fs-4 mb-0"
+          >Alke Wallet</span
+        >
+
+        <!-- Lado derecho -->
+        <div class="d-flex align-items-center gap-3">
+          <div class="text-secondary fs-6">
+            <span class="fw-medium">Bienvenido,</span>
+            <span class="fw-bold text-dark">Administrador</span>
+          </div>
+
+          <button
+            id="btn-volver-menu"
+            class="btn border-0 d-inline-flex align-items-center px-3 py-1 bg-danger bg-opacity-10 text-danger rounded-pill small fw-medium"
+            type="button"
+          >
+            <svg
+              class="me-1"
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <polyline points="9 14 4 9 9 4"></polyline>
+              <path d="M20 20v-7a4 4 0 0 0-4-4H4"></path>
+            </svg>
+            volver al menú
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Contenedor Principal (Tarjeta Centrada idéntica) -->
+    <div
+      class="flex-grow-1 d-flex justify-content-center align-items-center contenedor-principal"
+    >
+      <div class="d-flex flex-column gap-3 menu-container">
+        <!-- Tarjeta de Saldo -->
+        <div class="card border-0 align-items-center shadow-sm p-4 text-center card-custom">
+  
+  <div class="bg-success text-white d-flex align-items-center justify-content-center icon-container mb-2 tj-saldo">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="5" y1="12" x2="19" y2="12"></line>
+      <polyline points="12 5 19 12 12 19"></polyline>
+    </svg>
+  </div>
+
+  <p class="text-normal fw-bold saldo-title-icon-azul mb-1">
+    Enviar Dinero
+  </p>
+  <p class="text-depositar mb-4">
+    Transfiere fondos de manera segura e inmediata
+  </p>
+
+  <div class="caja-saldo-actual mb-4">
+    <p class="text-secondary text-uppercase fw-bold saldo-title">Saldo Disponible</p>
+    <h1 id="monto-principal-transferir" class="display-6 fw-bold mb-3">$0</h1>
+  </div>
+
+  <div id="contenedor-alertas" class="w-100 mb-3"></div>
+
+  <div class="w-100 d-flex flex-column gap-2 text-start">
+    <p class="text-depositar text-depositar2 text-black fw-bold">
+      MONTO A ENVIAR
+    </p>
+
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="basic-addon1">$</span>
+      <input
+        type="text"
+        class="form-control"
+        placeholder="0.00"
+        aria-label="Monto"
+        aria-describedby="basic-addon1"
+      />
+    </div>
+
+    <button
+      type="button"
+      id="btn-enviar"
+      class="btn btn-success btn-depositar-dinero"
+    >
+      Transferir
+    </button>
+  </div>
+</div>
+
+    <!-- Carga de scripts -->
+    <script src="../bootstrap.bundle.min.js"></script>
+    <script src="transferir.js"></script>
+  </body>
+</html>

@@ -60,25 +60,21 @@
     <!-- Contenedor Principal (Tarjeta Centrada) -->
     <div class="flex-grow-1 d-flex justify-content-center align-items-center">
       <!-- NUEVO: Este contenedor alinea la tarjeta y el botón verticalmente -->
-      <div
-        class="d-flex flex-column gap-3"
-        style="max-width: 400px; width: 100%"
-      >
+      <div class="d-flex flex-column gap-3 menu-container">
         <!-- Tarjeta de Saldo -->
-        <div
-          class="card border-0 shadow-sm p-4 text-center"
-          style="border-radius: 16px; width: 100%"
-        >
+        <div class="card border-0 shadow-sm p-4 text-center card-custom">
           <!-- Título de saldo -->
           <p
-            class="text-secondary text-uppercase fw-bold small mb-2"
-            style="letter-spacing: 0.5px"
+            class="text-secondary text-uppercase fw-bold small mb-2 saldo-title"
           >
             Saldo Disponible
           </p>
 
           <!-- Monto principal -->
-          <h1 class="display-5 fw-bold text-dark mb-3">$ 30.111,00</h1>
+          <h1
+            id="monto-principal"
+            class="display-5 fw-bold text-dark mb-3"
+          ></h1>
 
           <!-- Etiqueta de estado -->
           <div
@@ -104,14 +100,13 @@
 
         <!-- Botón Depositar Dinero  -------------------------------- -->
         <button
-          class="btn btn-white bg-white d-flex align-items-center justify-content-between p-3 border-0 shadow-sm"
-          style="border-radius: 16px; width: 100%"
+          id="id-btn-depositar-dinero"
+          class="btn btn-white bg-white d-flex align-items-center justify-content-between p-3 border-0 shadow-sm btn-enviar-dinero"
         >
           <div class="d-flex align-items-center">
             <!-- Icono azul -->
             <div
-              class="bg-primary text-white d-flex align-items-center justify-content-center me-3"
-              style="width: 45px; height: 45px; border-radius: 12px"
+              class="bg-primary text-white d-flex align-items-center justify-content-center me-3 icon-container"
             >
               <svg
                 width="20"
@@ -130,7 +125,7 @@
 
             <!-- Texto -->
             <div class="text-start">
-              <div class="fw-bold text-dark mb-0" style="line-height: 1.2">
+              <div class="fw-bold text-dark mb-0 btn-text-title">
                 Depositar Dinero
               </div>
               <small class="text-muted">Carga saldo a tu cuenta</small>
@@ -155,14 +150,13 @@
 
         <!-- Botón enviar Dinero -------------------------------- -->
         <button
-          class="btn btn-white bg-white d-flex align-items-center justify-content-between p-3 border-0 shadow-sm"
-          style="border-radius: 16px; width: 100%"
+          id="id-btn-enviar-dinero"
+          class="btn btn-white bg-white d-flex align-items-center justify-content-between p-3 border-0 shadow-sm btn-enviar-dinero"
         >
           <div class="d-flex align-items-center">
             <!-- Icono azul -->
             <div
-              class="bg-success text-white d-flex align-items-center justify-content-center me-3"
-              style="width: 45px; height: 45px; border-radius: 12px"
+              class="bg-success text-white d-flex align-items-center justify-content-center me-3 icon-container"
             >
               <svg
                 width="20"
@@ -181,7 +175,7 @@
 
             <!-- Texto -->
             <div class="text-start">
-              <div class="fw-bold text-dark mb-0" style="line-height: 1.2">
+              <div class="fw-bold text-dark mb-0 btn-text-title">
                 Enviar Dinero
               </div>
               <small class="text-muted">Transferencia a contactos</small>
@@ -206,14 +200,13 @@
 
         <!-- Botón movimiento de transacciones -------------------------------- -->
         <button
-          class="btn btn-white bg-white d-flex align-items-center justify-content-between p-3 border-0 shadow-sm"
-          style="border-radius: 16px; width: 100%"
+          id="id-btn-ver-movimientos"
+          class="btn btn-white bg-white d-flex align-items-center justify-content-between p-3 border-0 shadow-sm btn-enviar-dinero"
         >
           <div class="d-flex align-items-center">
             <!-- Icono azul -->
             <div
-              class="bg-info text-white d-flex align-items-center justify-content-center me-3"
-              style="width: 45px; height: 45px; border-radius: 12px"
+              class="bg-info text-white d-flex align-items-center justify-content-center me-3 icon-container"
             >
               <svg
                 width="20"
@@ -236,7 +229,7 @@
 
             <!-- Texto -->
             <div class="text-start">
-              <div class="fw-bold text-dark mb-0" style="line-height: 1.2">
+              <div class="fw-bold text-dark mb-0 btn-text-title">
                 Movimientos
               </div>
               <small class="text-muted">Historial de transacciones</small>

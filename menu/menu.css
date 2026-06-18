@@ -1,0 +1,29 @@
+/* Contenedor principal de la tarjeta y botones */
+.menu-container {
+  max-width: 400px;
+  width: 100%;
+}
+
+/* Tarjetas y botones con esquinas redondeadas */
+.card-custom,
+.btn-enviar-dinero {
+  border-radius: 16px;
+  width: 100%;
+}
+
+/* Texto del título del saldo */
+.saldo-title {
+  letter-spacing: 0.5px;
+}
+
+/* Contenedores de los iconos redondos */
+.icon-container {
+  width: 45px;
+  height: 45px;
+  border-radius: 12px;
+}
+
+/* Altura de línea para los textos de los botones */
+.btn-text-title {
+  line-height: 1.2;
+}

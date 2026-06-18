@@ -1,0 +1,43 @@
+/* Un fondo degradado sutil para que no sea un gris plano */
+body {
+  background: linear-gradient(135deg, #1e1e2f 0%, #111119 100%) !important;
+  min-height: 100vh;
+}
+
+/* Efecto de cristal esmerilado (Glassmorphism) para la tarjeta */
+.card {
+  background: rgba(43, 48, 53, 0.75) !important;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+/* Animación sutil cuando el usuario interactúa con la tarjeta */
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Un leve resplandor de neón para el saldo de éxito */
+#monto-principal-transferir {
+  text-shadow: 0 0 10px rgba(25, 135, 84, 0.4);
+  color: #198754;
+}
+
+/* Suavizar la transición de los botones al pasar el mouse */
+.btn {
+  transition: all 0.2s ease-in-out;
+}
+
+.btn:hover {
+  filter: brightness(1.2);
+  letter-spacing: 0.5px; /* Un pequeño efecto expansivo */
+}
+
+.tj-saldo {
+  width: 45px;
+  height: 45px;
+  border-radius: 12px;
+}

@@ -1,0 +1,15 @@
+.text-start {
+  max-height: 250px;
+  overflow-y: auto;
+}
+
+.btn-limpiar-historial {
+  border-radius: 10px;
+  font-size: 12px;
+}
+
+.card-border {
+  width: 45px;
+  height: 45px;
+  border-radius: 12px;
+}

@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="../deposito/deposito.css" />
+    <title>AlkeWallet - Historial de Movimientos</title>
+
+    <link rel="stylesheet" href="../bootstrap.min.css" />
+    <script src="../jquery.min.js"></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand bg-white border-bottom px-4 py-3">
+      <div
+        class="container-fluid p-0 d-flex justify-content-between align-items-center"
+      >
+        <span class="navbar-brand fw-bold text-dark fs-4 mb-0"
+          >Alke Wallet</span
+        >
+
+        <div class="d-flex align-items-center gap-3">
+          <div class="text-secondary fs-6">
+            <span class="fw-medium">Bienvenido,</span>
+            <span class="fw-bold text-dark">Administrador</span>
+          </div>
+
+          <button
+            id="btn-volver-menu"
+            class="btn border-0 d-inline-flex align-items-center px-3 py-1 bg-danger bg-opacity-10 text-danger rounded-pill small fw-medium"
+            type="button"
+          >
+            <svg
+              class="me-1"
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <polyline points="9 14 4 9 9 4"></polyline>
+              <path d="M20 20v-7a4 4 0 0 0-4-4H4"></path>
+            </svg>
+            volver al menú
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <div
+      class="flex-grow-1 d-flex justify-content-center align-items-center contenedor-principal"
+    >
+      <div class="d-flex flex-column gap-3 menu-container">
+        <div class="card border-0 align-items-center shadow-sm p-4 card-custom">
+          <div
+            class="card-border bg-primary text-white d-flex align-items-center justify-content-center icon-container mb-2"
+          >
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+          </div>
+
+          <p class="text-normal fw-bold text-center saldo-title-icon-azul mb-1">
+            Últimos Movimientos
+          </p>
+          <p class="text-depositar text-center mb-4">
+            Registro de tus depósitos y transferencias enviadas
+          </p>
+
+          <div id="contenedor-alertas" class="w-100 mb-3"></div>
+
+          <div class="w-100 text-start">
+            <ul
+              id="lista-movimientos"
+              class="list-group list-group-flush w-100"
+            ></ul>
+          </div>
+
+          <button
+            id="btn-limpiar-historial"
+            class="btn btn-outline-secondary btn-sm mt-3 w-100 btn-limpiar-historial"
+          >
+            Limpiar Historial
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="../bootstrap.bundle.min.js"></script>
+    <script src="movimientos.js"></script>
+  </body>
+</html>
